@@ -5,7 +5,7 @@ import java.awt.Color;
  * Canvas class. 
  *
  * @author Emeka Okonkwo
- * @version 2015-March-BB
+ * @version 2017.10.22
  *
  * @author Michael Kölling and David J. Barnes
  * @version 2011.07.31
@@ -25,6 +25,14 @@ public class BallDemo
     
     public void boxBounce()
     {
+        int ground = 400;
+        int ceiling = 50;
+        
+        myCanvas.drawLine(50, ground, 550, ground);
+        myCanvas.drawLine(50, ceiling, 550, ceiling);
+        myCanvas.drawLine(50, ceiling, 50, ground);
+        myCanvas.drawLine(550, ceiling, 550, ground);
+        
         BoxBall ball = new BoxBall(50, 50, 16, Color.BLUE, myCanvas);
         ball.draw();
         

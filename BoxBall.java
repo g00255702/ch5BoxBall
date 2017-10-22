@@ -10,9 +10,9 @@ import java.awt.geom.*;
  *
  * This movement can be initiated by repeated calls to the "move" method.
  * 
- * @author Bill Crosbie
+ * @author Emeka Okonkwo
  * 
- * @version 2011.07.31
+ * @version 2017.10.22
  */
 
 public class BoxBall
