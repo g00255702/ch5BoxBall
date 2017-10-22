@@ -33,7 +33,7 @@ public class BallDemo
         myCanvas.drawLine(50, ceiling, 50, ground);
         myCanvas.drawLine(550, ceiling, 550, ground);
         
-        BoxBall ball = new BoxBall(50, 50, 16, Color.BLUE, myCanvas);
+        BoxBall ball = new BoxBall(50, 50, 16, Color.BLUE, 50, 550, ground, ceiling, myCanvas);
         ball.draw();
         
             while(true)

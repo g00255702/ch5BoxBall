@@ -19,7 +19,7 @@ public class BoxBall
 {
     private static final int GRAVITY = 3;  // effect of gravity
 
-    // private int ballDegradation = 2;
+    private int ballDegradation = 2;
     private Ellipse2D.Double circle;
     private Color color;
     private int diameter;
@@ -43,7 +43,7 @@ public class BoxBall
      * @param drawingCanvas  the canvas to draw this ball on
      */
     public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
-                        Canvas drawingCanvas)
+                    int leftPos, int rightPos, int bottomPos, int topPos, Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
@@ -51,10 +51,10 @@ public class BoxBall
         diameter = ballDiameter;
         //groundPosition = groundPos;
         canvas = drawingCanvas;
-        leftWall = 0;
-        rightWall = 600;
-        topWall = 0;
-        bottomWall = 500;
+        leftWall = leftPos;
+        rightWall = rightPos;
+        topWall = topPos;
+        bottomWall = bottomPos;
     }
 
     /**
@@ -87,30 +87,33 @@ public class BoxBall
         yPosition += ySpeed;
         xPosition += xSpeed;
 
-        // check if it has hit the ground
-//         if(yPosition >= (groundPosition - diameter) && ySpeed > 0) {
-//             yPosition = (int)(groundPosition - diameter);
-//             ySpeed = -ySpeed + ballDegradation; 
-//         }
+        //check if it has hit the ground
+        // if(yPosition >= (bottomWall - diameter) && ySpeed > 0) {
+        //     yPosition = (int)(bottomWall - diameter);
+        //     ySpeed = -ySpeed + ballDegradation; 
+        // }
+             
 
         // WALL CHECKS
-        if (xPosition < leftWall ) {
+        if (xPosition <= (leftWall + 1)) {
+            xPosition = leftWall + 1;
             xSpeed = -xSpeed;
         }
         
-        if (xPosition > rightWall ) {
+        if (xPosition >= (rightWall - diameter)) {
+            xPosition = (int)(rightWall - diameter);
             xSpeed = -xSpeed;
         }
         
-        if (yPosition < topWall ) {
-            ySpeed = -ySpeed;
+        if (yPosition <= (topWall + 1)) {
+            yPosition = (topWall + 1);
+            ySpeed = -ySpeed + ballDegradation;
         }
         
-        if (yPosition > bottomWall ) {
+        if (yPosition >= (bottomWall - diameter ) && ySpeed > 0) {
+            yPosition = (int)(bottomWall - diameter);
             ySpeed = -ySpeed;
         }
-        
-
         // draw again at new position
         draw();
     }    
