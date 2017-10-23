@@ -58,7 +58,9 @@ public class BoxBall
         bottomWall = bottomPos;
         ySpeed = rand.nextInt(7) + 1;
         xSpeed = rand.nextInt(7) + 1;
+        
     }
+    
 
     /**
      * Draw this ball at its current position onto the canvas.

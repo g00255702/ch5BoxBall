@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.util.Random;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Class BallDemo - a short demonstration showing animation with the 
@@ -16,6 +18,7 @@ public class BallDemo
 {
     private Canvas myCanvas;
     private Random rand = new Random();
+    private Random randomPosition = new Random(400);
 
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
@@ -45,23 +48,32 @@ public class BallDemo
         int r = rand.nextInt(255) + 1;
         int g = rand.nextInt(255) + 1;
         int b = rand.nextInt(255) + 1;
-
         Color randomColor = new Color(r,g,b);
+        
+        Dimension size = myCanvas.getSize();
+        int positionX;
+        int positionY;
+        int randomX = size.width;
+        int randomY = size.height;
+        
+        positionX = randomPosition.nextInt(randomX) + 1;
+        positionY = randomPosition.nextInt(randomY) + 1;
+        
 
 
-        BoxBall ball = new BoxBall(50, 100, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball = new BoxBall(positionX, positionY, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball.draw();
         
-        BoxBall ball2 = new BoxBall(50, 100, 30, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball2 = new BoxBall(positionX, positionY, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball2.draw();
         
-        BoxBall ball3 = new BoxBall(50, 100, 35, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball3 = new BoxBall(positionX, positionY, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball3.draw();
         
-        BoxBall ball4 = new BoxBall(50, 100, 40, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball4 = new BoxBall(positionX, positionY, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball4.draw();
         
-        BoxBall ball5 = new BoxBall(50, 100, 15, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball5 = new BoxBall(positionX, positionY, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball5.draw();
         
             while(true)
@@ -73,37 +85,5 @@ public class BallDemo
                 ball4.move();
                 ball5.move();
             }
-    }
-
-
-    /**
-     * Simulate two bouncing balls
-     */
-    public void bounce()
-    {
-        int ground = 400;   // position of the ground line
-
-        myCanvas.setVisible(true);
-
-        // draw the ground
-        myCanvas.drawLine(50, ground, 550, ground);
-
-        // crate and show the balls
-        BouncingBall ball = new BouncingBall(50, 50, 16, Color.BLUE, ground, myCanvas);
-        ball.draw();
-        BouncingBall ball2 = new BouncingBall(70, 80, 20, Color.RED, ground, myCanvas);
-        ball2.draw();
-
-        // make them bounce
-        boolean finished =  false;
-        while(!finished) {
-            myCanvas.wait(50);           // small delay
-            ball.move();
-            ball2.move();
-            // stop once ball has travelled a certain distance on x axis
-            if(ball.getXPosition() >= 550 || ball2.getXPosition() >= 550) {
-                finished = true;
-            }
-        }
     }
 }
