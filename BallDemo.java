@@ -16,7 +16,6 @@ public class BallDemo
 {
     private Canvas myCanvas;
     private Random rand = new Random();
-    private Random randomSpeed = new Random();
 
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
@@ -30,17 +29,22 @@ public class BallDemo
     {
         int ground = 400;
         int ceiling = 50;
+        
+        myCanvas.setVisible(true);
         /**
-         * B
+         * Draws a rectangle box
          */
         myCanvas.drawLine(50, ground, 550, ground);
         myCanvas.drawLine(50, ceiling, 550, ceiling);
         myCanvas.drawLine(50, ceiling, 50, ground);
         myCanvas.drawLine(550, ceiling, 550, ground);
         
-        int r = rand.nextInt(254) + 1;
-        int g = rand.nextInt(254) + 1;
-        int b = rand.nextInt(254) + 1;
+        /**
+         * Sets a random Color
+         */
+        int r = rand.nextInt(255) + 1;
+        int g = rand.nextInt(255) + 1;
+        int b = rand.nextInt(255) + 1;
 
         Color randomColor = new Color(r,g,b);
 
@@ -48,20 +52,21 @@ public class BallDemo
         BoxBall ball = new BoxBall(50, 100, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball.draw();
         
-        BoxBall ball2 = new BoxBall(100, 125, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball2 = new BoxBall(50, 100, 30, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball2.draw();
         
-        BoxBall ball3 = new BoxBall(150, 60, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
-        ball2.draw();
+        BoxBall ball3 = new BoxBall(50, 100, 35, randomColor, 50, 550, ground, ceiling, myCanvas);
+        ball3.draw();
         
-        BoxBall ball4 = new BoxBall(300, 200, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
-        ball2.draw();
+        BoxBall ball4 = new BoxBall(50, 100, 40, randomColor, 50, 550, ground, ceiling, myCanvas);
+        ball4.draw();
         
-        BoxBall ball5 = new BoxBall(250, 150, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball5 = new BoxBall(50, 100, 15, randomColor, 50, 550, ground, ceiling, myCanvas);
+        ball5.draw();
         
             while(true)
             {
-                myCanvas.wait(50);
+                myCanvas.wait(10);
                 ball.move();
                 ball2.move();
                 ball3.move();

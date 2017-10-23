@@ -34,8 +34,6 @@ public class BoxBall
     private int ySpeed;                // initial downward speed
     private int xSpeed;
     private Random rand = new Random();
-    private boolean negative;
-    private boolean positive;
 
     /**
      * Constructor for objects of class BoxBall
@@ -53,7 +51,6 @@ public class BoxBall
         yPosition = yPos;
         color = ballColor;
         diameter = ballDiameter;
-        //groundPosition = groundPos;
         canvas = drawingCanvas;
         leftWall = leftPos;
         rightWall = rightPos;
@@ -68,8 +65,8 @@ public class BoxBall
      **/
     public void draw()
     {
-        canvas.setForegroundColor(color);
-        canvas.fillCircle(xPosition, yPosition, diameter);
+       canvas.setForegroundColor(color);
+       canvas.fillCircle(xPosition, yPosition, diameter);
     }
     
     /**
@@ -80,11 +77,7 @@ public class BoxBall
         canvas.eraseCircle(xPosition, yPosition, diameter);
     }    
 
-    public void ballSpeed()
-    {
-        int speed;
-        speed = rand.nextInt(7) + 1;
-    }
+
     /**
      * Move this ball according to its position and speed and redraw.
      **/
@@ -98,22 +91,22 @@ public class BoxBall
         xPosition += xSpeed;
         
         // WALL CHECKS
-        if (xPosition < leftWall) {
+        if (xPosition <= leftWall) {
             xPosition = leftWall;
             xSpeed = -xSpeed;
         }
         
-        if (xPosition > (rightWall - diameter)) {
+        if (xPosition >= (rightWall - diameter)) {
             xPosition = (int)(rightWall - diameter);
             xSpeed = -xSpeed;
         }
         
-        if (yPosition < topWall) {
+        if (yPosition <= topWall) {
             yPosition = topWall;
             ySpeed = -ySpeed;
         }
         
-        if (yPosition > (bottomWall - diameter ) && ySpeed > 0) {
+        if (yPosition >= (bottomWall - diameter ) && ySpeed > 0) {
             yPosition = (int)(bottomWall - diameter);
             ySpeed = -ySpeed;
         }
