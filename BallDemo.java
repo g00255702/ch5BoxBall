@@ -33,23 +33,21 @@ public class BallDemo
         int ground = 400;
         int ceiling = 50;
         
+        // draws the rectangle box
         myCanvas.setVisible(true);
-        /**
-         * Draws a rectangle box
-         */
         myCanvas.drawLine(50, ground, 550, ground);
         myCanvas.drawLine(50, ceiling, 550, ceiling);
         myCanvas.drawLine(50, ceiling, 50, ground);
         myCanvas.drawLine(550, ceiling, 550, ground);
         
-        /**
-         * Sets a random Color
-         */
+        // sets a random color
+
         int r = rand.nextInt(255) + 1;
         int g = rand.nextInt(255) + 1;
         int b = rand.nextInt(255) + 1;
         Color randomColor = new Color(r,g,b);
         
+        // get the size of the canvas
         Dimension size = myCanvas.getSize();
         int positionX;
         int positionY;
@@ -58,12 +56,10 @@ public class BallDemo
         
         positionX = randomPosition.nextInt(randomX) + 1;
         positionY = randomPosition.nextInt(randomY) + 1;
-        
-
 
         BoxBall ball = new BoxBall(positionX, positionY, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball.draw();
-        
+
         BoxBall ball2 = new BoxBall(positionX, positionY, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball2.draw();
         
