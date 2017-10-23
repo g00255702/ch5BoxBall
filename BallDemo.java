@@ -16,6 +16,7 @@ public class BallDemo
 {
     private Canvas myCanvas;
     private Random rand = new Random();
+    private Random randomSpeed = new Random();
 
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
@@ -35,25 +36,28 @@ public class BallDemo
         myCanvas.drawLine(50, ceiling, 50, ground);
         myCanvas.drawLine(550, ceiling, 550, ground);
         
-        int r = rand.nextInt(255);
-        int g = rand.nextInt(255);
-        int b = rand.nextInt(255);
+        int r = rand.nextInt(254) + 1;
+        int g = rand.nextInt(254) + 1;
+        int b = rand.nextInt(254) + 1;
 
         Color randomColor = new Color(r,g,b);
+        
+        int xBallSpeed = randomSpeed.nextInt(20) + 1;
+        int yBallSpeed = randomSpeed.nextInt(20) + 1;
 
-        BoxBall ball = new BoxBall(50, 100, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball = new BoxBall(50, 100, 25, randomColor, 50, 550, ground, ceiling, myCanvas, yBallSpeed, xBallSpeed);
         ball.draw();
         
-        BoxBall ball2 = new BoxBall(100, 125, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball2 = new BoxBall(100, 125, 25, randomColor, 50, 550, ground, ceiling, myCanvas, yBallSpeed, xBallSpeed);
         ball2.draw();
         
-        BoxBall ball3 = new BoxBall(150, 60, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball3 = new BoxBall(150, 60, 25, randomColor, 50, 550, ground, ceiling, myCanvas, yBallSpeed, xBallSpeed);
         ball2.draw();
         
-        BoxBall ball4 = new BoxBall(300, 200, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball4 = new BoxBall(300, 200, 25, randomColor, 50, 550, ground, ceiling, myCanvas, yBallSpeed, xBallSpeed);
         ball2.draw();
         
-        BoxBall ball5 = new BoxBall(250, 150, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball5 = new BoxBall(250, 150, 25, randomColor, 50, 550, ground, ceiling, myCanvas, yBallSpeed, xBallSpeed);
         
             while(true)
             {

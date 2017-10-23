@@ -12,6 +12,7 @@ import java.awt.geom.*;
  * @author Michael Kölling (mik)
  * @author David J. Barnes
  * @author Bruce Quig
+ * @author Emeka Okonkwo
  *
  * @version 2011.07.31
  */
