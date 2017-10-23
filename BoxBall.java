@@ -44,12 +44,13 @@ public class BoxBall
      * @param ballColor  the color of the ball
      * @param drawingCanvas  the canvas to draw this ball on
      */
-    public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
+    public BoxBall(int xPos, int yPos, int ballDiameter,
                     int leftPos, int rightPos, int bottomPos, int topPos, Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
-        color = ballColor;
+        Color randomColor = new Color((rand.nextInt(255)+1), (rand.nextInt(255)+1), (rand.nextInt(255)+1));
+        color = randomColor;
         diameter = ballDiameter;
         canvas = drawingCanvas;
         leftWall = leftPos;
@@ -58,6 +59,7 @@ public class BoxBall
         bottomWall = bottomPos;
         ySpeed = rand.nextInt(7) + 1;
         xSpeed = rand.nextInt(7) + 1;
+        
         
     }
     

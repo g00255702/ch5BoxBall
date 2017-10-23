@@ -40,12 +40,7 @@ public class BallDemo
         myCanvas.drawLine(50, ceiling, 50, ground);
         myCanvas.drawLine(550, ceiling, 550, ground);
         
-        // sets a random color
-
-        int r = rand.nextInt(255) + 1;
-        int g = rand.nextInt(255) + 1;
-        int b = rand.nextInt(255) + 1;
-        Color randomColor = new Color(r,g,b);
+  
         
         // get the size of the canvas
         Dimension size = myCanvas.getSize();
@@ -57,19 +52,19 @@ public class BallDemo
         positionX = randomPosition.nextInt(randomX) + 1;
         positionY = randomPosition.nextInt(randomY) + 1;
 
-        BoxBall ball = new BoxBall(positionX, positionY, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball = new BoxBall(positionX, positionY, 25, 50, 550, ground, ceiling, myCanvas);
         ball.draw();
 
-        BoxBall ball2 = new BoxBall(positionX, positionY, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball2 = new BoxBall(positionX, positionY, 25, 50, 550, ground, ceiling, myCanvas);
         ball2.draw();
         
-        BoxBall ball3 = new BoxBall(positionX, positionY, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball3 = new BoxBall(positionX, positionY, 25, 50, 550, ground, ceiling, myCanvas);
         ball3.draw();
         
-        BoxBall ball4 = new BoxBall(positionX, positionY, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball4 = new BoxBall(positionX, positionY, 25, 50, 550, ground, ceiling, myCanvas);
         ball4.draw();
         
-        BoxBall ball5 = new BoxBall(positionX, positionY, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        BoxBall ball5 = new BoxBall(positionX, positionY, 25, 50, 550, ground, ceiling, myCanvas);
         ball5.draw();
         
             while(true)
