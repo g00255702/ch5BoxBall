@@ -57,10 +57,8 @@ public class BoxBall
         rightWall = rightPos;
         topWall = topPos;
         bottomWall = bottomPos;
-        int max = 14;
-        int min = 0;
-        ySpeed = rand.nextInt((min + max) + 1) - 7; // Generates a speed from -7 to 7
-        xSpeed = rand.nextInt((min + max) + 1) - 7; // Generates a speed from -7 to 7
+        ySpeed = rand.nextInt(14) - 7; // Generates a speed from -7 to 7
+        xSpeed = rand.nextInt(14) - 7; // Generates a speed from -7 to 7
         
         
     }
