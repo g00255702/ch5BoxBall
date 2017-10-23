@@ -13,7 +13,7 @@ import java.util.Random;
  * 
  * @author Emeka Okonkwo
  * 
- * @version 2017.10.23
+ * @version 2017.10.2
  */
 
 public class BoxBall
@@ -57,8 +57,10 @@ public class BoxBall
         rightWall = rightPos;
         topWall = topPos;
         bottomWall = bottomPos;
-        ySpeed = rand.nextInt(7) + 1;
-        xSpeed = rand.nextInt(7) + 1;
+        int max = 14;
+        int min = 0;
+        ySpeed = rand.nextInt((min + max) + 1) - 7; // Generates a speed from -7 to 7
+        xSpeed = rand.nextInt((min + max) + 1) - 7; // Generates a speed from -7 to 7
         
         
     }
