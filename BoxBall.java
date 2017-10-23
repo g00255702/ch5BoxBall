@@ -19,7 +19,7 @@ public class BoxBall
 {
     private static final int GRAVITY = 3;  // effect of gravity
 
-    private int ballDegradation = 2;
+    //private int ballDegradation = 2;
     private Ellipse2D.Double circle;
     private Color color;
     private int diameter;
@@ -30,8 +30,8 @@ public class BoxBall
     private final int leftWall;            // x position of left Wall
     private final int rightWall;           // x position of right Wall
     private Canvas canvas;
-    private int ySpeed = 4 ;                // initial downward speed
-    private int xSpeed = 7;
+    private int ySpeed = 15;                // initial downward speed
+    private int xSpeed = 20;
 
     /**
      * Constructor for objects of class BoxBall
@@ -83,34 +83,26 @@ public class BoxBall
         erase();
             
         // compute new position
-        //ySpeed += GRAVITY;
         yPosition += ySpeed;
         xPosition += xSpeed;
-
-        //check if it has hit the ground
-        // if(yPosition >= (bottomWall - diameter) && ySpeed > 0) {
-        //     yPosition = (int)(bottomWall - diameter);
-        //     ySpeed = -ySpeed + ballDegradation; 
-        // }
-             
-
+        
         // WALL CHECKS
-        if (xPosition <= (leftWall + 1)) {
-            xPosition = leftWall + 1;
+        if (xPosition < leftWall) {
+            xPosition = leftWall;
             xSpeed = -xSpeed;
         }
         
-        if (xPosition >= (rightWall - diameter)) {
+        if (xPosition > (rightWall - diameter)) {
             xPosition = (int)(rightWall - diameter);
             xSpeed = -xSpeed;
         }
         
-        if (yPosition <= (topWall + 1)) {
-            yPosition = (topWall + 1);
-            ySpeed = -ySpeed + ballDegradation;
+        if (yPosition < topWall) {
+            yPosition = topWall;
+            ySpeed = -ySpeed;
         }
         
-        if (yPosition >= (bottomWall - diameter ) && ySpeed > 0) {
+        if (yPosition > (bottomWall - diameter ) && ySpeed > 0) {
             yPosition = (int)(bottomWall - diameter);
             ySpeed = -ySpeed;
         }

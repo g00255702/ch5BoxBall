@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.util.Random;
 
 /**
  * Class BallDemo - a short demonstration showing animation with the 
@@ -14,6 +15,7 @@ import java.awt.Color;
 public class BallDemo   
 {
     private Canvas myCanvas;
+    private Random rand = new Random();
 
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
@@ -33,15 +35,37 @@ public class BallDemo
         myCanvas.drawLine(50, ceiling, 50, ground);
         myCanvas.drawLine(550, ceiling, 550, ground);
         
-        BoxBall ball = new BoxBall(50, 50, 16, Color.BLUE, 50, 550, ground, ceiling, myCanvas);
+        int r = rand.nextInt(255);
+        int g = rand.nextInt(255);
+        int b = rand.nextInt(255);
+
+        Color randomColor = new Color(r,g,b);
+
+        BoxBall ball = new BoxBall(50, 100, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball.draw();
+        
+        BoxBall ball2 = new BoxBall(100, 125, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        ball2.draw();
+        
+        BoxBall ball3 = new BoxBall(150, 60, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        ball2.draw();
+        
+        BoxBall ball4 = new BoxBall(300, 200, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
+        ball2.draw();
+        
+        BoxBall ball5 = new BoxBall(250, 150, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         
             while(true)
             {
                 myCanvas.wait(50);
                 ball.move();
+                ball2.move();
+                ball3.move();
+                ball4.move();
+                ball5.move();
             }
     }
+
 
     /**
      * Simulate two bouncing balls
