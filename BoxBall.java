@@ -13,7 +13,7 @@ import java.util.Random;
  * 
  * @author Emeka Okonkwo
  * 
- * @version 2017.10.22
+ * @version 2017.10.23
  */
 
 public class BoxBall

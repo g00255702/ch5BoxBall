@@ -8,7 +8,7 @@ import java.awt.*;
  * Canvas class. 
  *
  * @author Emeka Okonkwo
- * @version 2017.10.22
+ * @version 2017.10.23
  *
  * @author Michael Kölling and David J. Barnes
  * @version 2011.07.31
