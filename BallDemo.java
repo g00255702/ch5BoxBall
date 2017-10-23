@@ -30,7 +30,9 @@ public class BallDemo
     {
         int ground = 400;
         int ceiling = 50;
-        
+        /**
+         * B
+         */
         myCanvas.drawLine(50, ground, 550, ground);
         myCanvas.drawLine(50, ceiling, 550, ceiling);
         myCanvas.drawLine(50, ceiling, 50, ground);
@@ -41,23 +43,21 @@ public class BallDemo
         int b = rand.nextInt(254) + 1;
 
         Color randomColor = new Color(r,g,b);
-        
-        int xBallSpeed = randomSpeed.nextInt(20) + 1;
-        int yBallSpeed = randomSpeed.nextInt(20) + 1;
 
-        BoxBall ball = new BoxBall(50, 100, 25, randomColor, 50, 550, ground, ceiling, myCanvas, yBallSpeed, xBallSpeed);
+
+        BoxBall ball = new BoxBall(50, 100, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball.draw();
         
-        BoxBall ball2 = new BoxBall(100, 125, 25, randomColor, 50, 550, ground, ceiling, myCanvas, yBallSpeed, xBallSpeed);
+        BoxBall ball2 = new BoxBall(100, 125, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball2.draw();
         
-        BoxBall ball3 = new BoxBall(150, 60, 25, randomColor, 50, 550, ground, ceiling, myCanvas, yBallSpeed, xBallSpeed);
+        BoxBall ball3 = new BoxBall(150, 60, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball2.draw();
         
-        BoxBall ball4 = new BoxBall(300, 200, 25, randomColor, 50, 550, ground, ceiling, myCanvas, yBallSpeed, xBallSpeed);
+        BoxBall ball4 = new BoxBall(300, 200, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         ball2.draw();
         
-        BoxBall ball5 = new BoxBall(250, 150, 25, randomColor, 50, 550, ground, ceiling, myCanvas, yBallSpeed, xBallSpeed);
+        BoxBall ball5 = new BoxBall(250, 150, 25, randomColor, 50, 550, ground, ceiling, myCanvas);
         
             while(true)
             {

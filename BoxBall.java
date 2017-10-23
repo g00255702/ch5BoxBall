@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.geom.*;
+import java.util.Random;
 
 /**
  * Class BoxBall - a graphical ball that moves at a constant rate in
@@ -32,6 +33,9 @@ public class BoxBall
     private Canvas canvas;
     private int ySpeed;                // initial downward speed
     private int xSpeed;
+    private Random rand = new Random();
+    private boolean negative;
+    private boolean positive;
 
     /**
      * Constructor for objects of class BoxBall
@@ -43,7 +47,7 @@ public class BoxBall
      * @param drawingCanvas  the canvas to draw this ball on
      */
     public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
-                    int leftPos, int rightPos, int bottomPos, int topPos, Canvas drawingCanvas, int ranYSpeed, int ranXSpeed)
+                    int leftPos, int rightPos, int bottomPos, int topPos, Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
@@ -55,8 +59,8 @@ public class BoxBall
         rightWall = rightPos;
         topWall = topPos;
         bottomWall = bottomPos;
-        ySpeed = ranYSpeed;
-        xSpeed = ranXSpeed;
+        ySpeed = rand.nextInt(7) + 1;
+        xSpeed = rand.nextInt(7) + 1;
     }
 
     /**
@@ -67,7 +71,7 @@ public class BoxBall
         canvas.setForegroundColor(color);
         canvas.fillCircle(xPosition, yPosition, diameter);
     }
-
+    
     /**
      * Erase this ball at its current position.
      **/
@@ -76,6 +80,11 @@ public class BoxBall
         canvas.eraseCircle(xPosition, yPosition, diameter);
     }    
 
+    public void ballSpeed()
+    {
+        int speed;
+        speed = rand.nextInt(7) + 1;
+    }
     /**
      * Move this ball according to its position and speed and redraw.
      **/
